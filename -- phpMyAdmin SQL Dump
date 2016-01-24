@@ -1,0 +1,222 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.10
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Jan 24, 2016 at 11:38 AM
+-- Server version: 5.5.42
+-- PHP Version: 5.6.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `testyourskills`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `tysid` varchar(30) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `designation` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`tysid`, `password`, `name`, `designation`) VALUES
+('arvind@tys.com', 'indian', 'Arvind Kumar', 'admin'),
+('cse1@smvec', 'root', 'Arvind', 'student');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `college`
+--
+
+CREATE TABLE `college` (
+  `colg_id` varchar(50) NOT NULL,
+  `colg_name` varchar(150) NOT NULL,
+  `univ_id` varchar(50) NOT NULL,
+  `head_of_ins` varchar(100) NOT NULL,
+  `tysid` varchar(30) NOT NULL,
+  `pass` varchar(50) NOT NULL,
+  `rank` int(11) NOT NULL,
+  `points` varchar(10) NOT NULL,
+  `logo` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `college`
+--
+
+INSERT INTO `college` (`colg_id`, `colg_name`, `univ_id`, `head_of_ins`, `tysid`, `pass`, `rank`, `points`, `logo`) VALUES
+('TYS_CHRIST', 'CHRIST ENGINEERING COLLEGE', 'ICCPCT 394', 'Mr. K. Arul', 'christ@christ', 'password', 3, '120', './pics/christ.jpg'),
+('TYS_MIT', 'Manakula Vinayagar Institute Of Technology', 'ICCPT 943', 'Dr. S. Malarkkan', 'mit@mit', 'password', 2, '400', './pics/mit.png'),
+('TYS_SMVEC', 'Sri Manakula Vinayagar Engineering College', 'ICPCT 3453', 'Mr. Venkatachapathy', 'smvec@smvec', 'password', 1, '1000', './pics/smvec.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `question`
+--
+
+CREATE TABLE `question` (
+  `ques_id` varchar(50) NOT NULL,
+  `ques` longtext NOT NULL,
+  `tc1` mediumtext NOT NULL,
+  `tc2` mediumtext NOT NULL,
+  `tc3` mediumtext NOT NULL,
+  `no_of_attempts` int(11) NOT NULL,
+  `solved` int(11) NOT NULL,
+  `difficulty` varchar(50) NOT NULL,
+  `domain` varchar(150) NOT NULL,
+  `ques_header` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `question`
+--
+
+INSERT INTO `question` (`ques_id`, `ques`, `tc1`, `tc2`, `tc3`, `no_of_attempts`, `solved`, `difficulty`, `domain`, `ques_header`) VALUES
+('TYS01', 'Sample Program\nLet''s explore the best of our programming portal !!\nBegin with printing Hello World in your preferred programming language.\n\nSample Input:\nNo input from stdin\n\nSample Output:\nHello World\n\n\n', 'Hello World', 'Hello World', 'Hello World', 4, 4, 'Easy', 'sample', 'Hello World');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+
+CREATE TABLE `staff` (
+  `tysid` varchar(30) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `dept` varchar(50) NOT NULL,
+  `colg_name` varchar(150) NOT NULL,
+  `performance` varchar(30) NOT NULL,
+  `groups_monitered` varchar(15000) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `dob` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `tysid` varchar(30) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `univ_reg_id` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `dept` varchar(100) NOT NULL,
+  `age` int(11) NOT NULL,
+  `rank` int(11) NOT NULL,
+  `points` varchar(10) NOT NULL,
+  `dob` varchar(100) NOT NULL,
+  `colg_id` varchar(50) NOT NULL,
+  `dp` varchar(100) NOT NULL,
+  `emailid` varchar(100) NOT NULL,
+  `interests` longtext NOT NULL,
+  `year` varchar(10) NOT NULL,
+  `resume` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`tysid`, `password`, `univ_reg_id`, `name`, `dept`, `age`, `rank`, `points`, `dob`, `colg_id`, `dp`, `emailid`, `interests`, `year`, `resume`) VALUES
+('cse1@smvec', 'password', '12TD0420', 'Arvind Kumar', 'CSE', 22, 1, '3000', '10-01-1995', 'TYS_SMVEC', './pics/smvec.jpg', '', '', '', ''),
+('cse2@smvec', 'password', '12TD0430', 'Ramu', 'CSE', 21, 2, '650', '23-09-1994', 'TYS_SMVEC', './pics/smvec.jpg', '', '', '', ''),
+('cse3@smvec', 'password', '12TD0450', 'Gopu', 'CSE', 21, 3, '100', '22-04-1994', 'TYS_SMVEC', './pics/smvec.jpg', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `task_completed`
+--
+
+CREATE TABLE `task_completed` (
+  `ques_id` varchar(50) NOT NULL,
+  `tysid` varchar(50) NOT NULL,
+  `test_cases_passed` int(11) NOT NULL,
+  `points` int(11) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `task_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `task_completed`
+--
+
+INSERT INTO `task_completed` (`ques_id`, `tysid`, `test_cases_passed`, `points`, `date`, `task_id`) VALUES
+('TYS01', 'cse1@smvec', 1, 10, '09/01/2016', 1),
+('TYS01', 'cse1@smvec', 1, 10, '09/01/2016', 2),
+('TYS01', 'cse1@smvec', 1, 10, '09/01/2016', 3),
+('TYS01', 'cse1@smvec', 1, 10, '23/01/2016', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test`
+--
+
+CREATE TABLE `test` (
+  `test_id` varchar(50) NOT NULL,
+  `group_id` varchar(100) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `ques_id` varchar(50) NOT NULL,
+  `max_mark` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`tysid`);
+
+--
+-- Indexes for table `college`
+--
+ALTER TABLE `college`
+  ADD PRIMARY KEY (`tysid`);
+
+--
+-- Indexes for table `question`
+--
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`ques_id`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`tysid`);
+
+--
+-- Indexes for table `task_completed`
+--
+ALTER TABLE `task_completed`
+  ADD PRIMARY KEY (`task_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `task_completed`
+--
+ALTER TABLE `task_completed`
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
