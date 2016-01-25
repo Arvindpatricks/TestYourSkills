@@ -467,8 +467,15 @@ $error = file_get_contents("error.txt");
 
 if($error=='')
 {echo "<td>";
+//exec(php test.php,$array,$error);
 
-$ans=exec("./a.out");
+
+//passthru(/bin/php /pathtotest/test.php,$array,$error);
+
+$ans = passthru("./a.out",$ans);
+//$skuList = explode(PHP_EOL, $ans);
+//$ans =$skuList[0];
+//$ans=exec("./a.out");
 }
 	else
 		echo "<td>".$error."</td>";

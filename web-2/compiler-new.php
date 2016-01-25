@@ -6,6 +6,40 @@
 <link href="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/hackerrank_libraries-0a6d5a99a344c17b110dbd11804c4151.css" media="all" rel="stylesheet" />
 <link href="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/hackerrank-core-89343b0ae6f3b500474f85d0a321d8ae.css" media="all" rel="stylesheet" />
 <link href="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/dashboard-21b1dbba10cf7e97f29f1a19d888d732.css" media="all" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/0.2.2/jquery.textcomplete.js"></script>
+<script src="https://code.jquery.com/jquery-git2.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+ $( document ).ready(function() {
+	 alert('hello');
+$('#textt').textcomplete([
+    { // tech companies
+        words: ['apple', 'google', 'facebook', 'github'],
+        match: /\b(\w{1,})$/,
+        search: function (term, callback) {
+            callback($.map(this.words, function (word) {
+                return word.indexOf(term) === 0 ? word : null;
+            }));
+        },
+        index: 1,
+        replace: function (word) {
+            return word + ' ';
+        }
+    }
+]);
+    });
+
+
+</script>
 
 <title>TestYourSkills | Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -471,7 +505,7 @@ session_start();
             <textarea rows="10" style="width:100%;" id="textt" name="coding">
 
 #include<stdio.h>
-#include<conio.h>
+#include<ctype.h>
 	int main(){
 
 	return 0;
