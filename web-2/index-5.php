@@ -1,4 +1,4 @@
-// This is the home page of Test Your Skills
+<!-- This is the home page of Test Your Skills -->
 
 <!DOCTYPE html>
 <html>

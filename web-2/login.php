@@ -1,4 +1,14 @@
+<script type="text/javascript">
+
+function wrong_password()
+{alert("Incorrect User Id and Password");
+window.location="./index-5.php";
+}
+
 <?php
+
+
+
 $tysid = $_POST['tysid'];
 $pass = $_POST['pass'];
 $servername = "localhost";
@@ -47,9 +57,12 @@ if ($result->num_rows > 0) {
 		}
 	}
 } else {
-			header('Location: ./index1.php');
+		echo "wrong_password();";
+		//	header('Location: ./index-5.php');
 }
 $conn->close();
 
 
 ?>
+
+</script>
