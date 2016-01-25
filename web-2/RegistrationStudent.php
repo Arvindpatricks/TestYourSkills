@@ -308,41 +308,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Email Id</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="focusedinput" placeholder="Email Id" name="emailid">
+										<!--<input type="text" class="form-control1" id="focusedinput" placeholder="Email Id" name="emailid">-->
+										<input type="email" class="form-control1" id="focusedinput" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email Id" name="emailid" onfocus="this.value = '';" title="Must be in this format 'example@domain.com' " onblur="if (this.value == '') {this.value = '';}" required>
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label for="inputPassword" class="col-sm-2 control-label">Password</label>
 									<div class="col-sm-8">
-										<input type="password" class="form-control1" id="inputPassword" placeholder="Password" name="password">
+										<!--<input type="password" class="form-control1" id="inputPassword" placeholder="Password" name="password">-->
+										<input type="password" class="form-control1" id="inputPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">University Registration Id</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="focusedinput" placeholder="University Registration Id" name="universityid">
+										<input type="text" class="form-control1" id="focusedinput" placeholder="University Registration Id" name="universityid" title="University Registration Id cannot be null">
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Name</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="focusedinput" placeholder="Name" name="name">
+										<input type="text" class="form-control1" id="focusedinput" placeholder="Full Name" name="name" title="Name cannot be null">
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label for="selector1" class="col-sm-2 control-label">Department</label>
 									<div class="col-sm-8"><select name="department" id="department" class="form-control1">
+										<option>Select</option>
 										<option value="CSE">CSE</option>
 										<option value="IT">IT</option>
 										<option value="ECE">ECE</option>
 										<option value="EEE">EEE</option>
 										<option value="ICE">ICE</option>
 										<option value="MECHANICAL">MECHANICAL</option>
-										<option value="E&I"E&I</option>
+										<option value="E&I">E&I</option>
 										<option value="CHEMICAL">CHEMICAL</option>
 									</select></div>
 								</div>
@@ -350,15 +353,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Date of Birth</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="dateofbirth" placeholder="Date of Birth" name="dateofbirth">
+										<input type="date" class="form-control1" id="dateofbirth" placeholder="Date of Birth" name="dateofbirth" title="Date of Birth cannot be null">
 									</div>
 								</div>
 								
 								<div class="form-group" id="gender">
-									<label for="checkbox" class="col-sm-2 control-label">Gender</label>
+									<label for="radio" class="col-sm-2 control-label">Gender</label>
 									<div class="col-sm-8" id="gender">
-										<div class="checkbox-inline"><label><input type="checkbox" value="male"checked="">Male</label></div>
-										<div class="checkbox-inline"><label><input type="checkbox" value="female">Female</label></div>
+										<input type="radio" name="gender" value="male" title="Gender cannot be null" > Male &nbsp;
+										<input type="radio" name="gender" value="female" title="Gender cannot be null"> Female
 									</div>
 								</div>
 								
@@ -372,40 +375,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</select></div>
 								</div>
 								
-								<div class="form-group">
-									<label class="col-sm-2 control-label">Interests</label>
-									<div class="col-sm-8">
-										<select multiple="" name="interests"class="form-control1"id="interests">
-											<option value="Data Structures">Data Structures</option>
-											<option value="Algorithm">Algorithm</option>
-											<option value="SQL">SQL</option>
-											<option value="AI">AI</option>
-										</select>
-									</div>
-								</div>
+								
 								
 							<div class="form-group" id="year">
 									<label for="radio" class="col-sm-2 control-label">Year of Studying</label>
-									<div class="col-sm-8">
-										<div class="radio-inline"><label><input type="radio" name="I"> I</label></div>
-										<div class="radio-inline"><label><input type="radio" name="II"> II</label></div>
-										<div class="radio-inline"><label><input type="radio" name="III"> III</label></div>
-										<div class="radio-inline"><label><input type="radio" name="IV" checked="">IV</label></div>
+									<div class="col-sm-8" id="gender">
+										<input type="radio" name="year" value="I" title="Year cannot be null"> I &nbsp;
+										<input type="radio" name="year" value="II" title="Year cannot be null"> II &nbsp;
+										<input type="radio" name="year" value="III" title="Year cannot be null"> III &nbsp;
+										<input type="radio" name="year" value="IV" title="Year cannot be null"> IV 
 									</div>
 							</div>
 							
 							<div class="form-group">
 									<label class="col-sm-2 control-label">Upload your Photo</label>
 									<div class="col-sm-8">
-										<input type="file" name ="photo" id="photo">
+										<input type="file" name ="photo" id="photo" title="Must be in JPEG or PNG">
 									</div>
 								</div>
 							
 							<div class="form-group">
 									<label class="col-sm-2 control-label">Upload Your Resume</label>
 									<div class="col-sm-8">
-										<input type="file" name="resume" id="resume">
-																	<p class="help-block">*Only in Docx and PDF</p>
+										<input type="file" name="resume" id="resume" title="Must be in Docx or PDF">
+										<p class="help-block">*Only in Docx or PDF</p>
 										
 									</div>
 								</div>
